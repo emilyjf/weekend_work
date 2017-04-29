@@ -1,6 +1,22 @@
 # Create a Rectangle class with readable width and height attributes
 # and a method to calculate its area.
+class Rectangle
 
+  attr_reader :width, :height
+
+  def initialize(input_options)
+    @width = input_options[:width]
+    @height = input_options[:height]
+  end
+
+  def area
+    puts @width * @height
+  end
+
+end
+
+rectangle1 = Rectangle.new({width: 5, height: 3})
+puts rectangle1.area
 
 
 # Driver code - don't touch anything below this line.
