@@ -1,13 +1,18 @@
 # Complete the method called reverse_a_string that accepts a string as a parameter and 
 # returns the reverse. The one caveat: Don't use the reverse method that already
 # comes with Ruby!
-puts "Enter a sentence."
-  string = gets.chomp
 
 
 def reverse_a_string(string) 
-  string.split
-  puts string
+  reversed_string = ''
+
+  i = 0
+  while i < string.length
+    reversed_string = string[i] + reversed_string
+    i += 1
+  end
+
+  return reversed_string
 end
 
 # Driver code - don't touch anything below this line.
