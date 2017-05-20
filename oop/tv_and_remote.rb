@@ -13,58 +13,120 @@
 
 class TV
 
-  attr_reader :power, :volume, :channel
+  attr_reader :volume, :channel, :power
 
   def initialize(input_options)
     @power = input_options[:power]
     @volume = input_options[:volume]
     @channel = input_options[:channel]
   end
+
+  def toggle_power
+    if power == "on"
+      @power = "off"
+    else
+      @power = "on"
+    end
+  end
+
+  def increment_volume
+    if volume < 10
+      @volume += 1
+    end
+  end
+
+  def decrement_volume
+    if volume > 0
+      @volume -= 1
+    end 
+  end
+
+  def set_channel(num)
+    @channel = num
+  end
 end
 
-class Remote < TV
+class Remote
+
+  attr_accessor :tv
 
   def initialize(input_options)
-    super(input_options)
     @tv = input_options[:tv]
   end
 
   def toggle_power
-    @power = on
-      if @power = on
-        off
-      end
+    tv.toggle_power
   end
 
   def increment_volume
-    @volume = +1
+    tv.increment_volume
   end
 
   def decrement_volume
-    @volume = -1
+    tv.decrement_volume
   end
 
-  def set_channel( )
-
+  def set_channel(num)
+    tv.set_channel(num)
   end
 end
 
 #Driver code
 tv = TV.new({power: "on", volume: 3, channel: 2})
-puts tv.power
-puts tv.volume
-puts tv.channel
-
 remote = Remote.new(tv: tv)
 
+p tv.power
 remote.toggle_power
-puts tv.power
+p tv.power
+remote.toggle_power
+p tv.power
 
-remote.increment_volume 
-puts tv.volume
+p tv.volume
+remote.increment_volume
+p tv.volume
+remote.increment_volume
+p tv.volume
+remote.increment_volume
+p tv.volume
+remote.increment_volume
+p tv.volume
+p tv.volume
+remote.increment_volume
+p tv.volume
+remote.increment_volume
+p tv.volume
+remote.increment_volume
+p tv.volume
+remote.increment_volume
+p tv.volume
 
+p tv.volume
 remote.decrement_volume
-puts tv.volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
+remote.decrement_volume
+p tv.volume
 
-remote.set_channel
-puts tv.channel
+p tv.channel
+remote.set_channel(7)
+p tv.channel
